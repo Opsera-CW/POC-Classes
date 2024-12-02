@@ -1,0 +1,12 @@
+public class AccountHelper {
+    public static void updateAccountIndustry(List<Account> accounts) {
+        for (Account acc : accounts) {
+            if (acc.Industry == 'Technology') {
+                acc.Industry = 'Tech';
+            } else {
+                acc.Industry = 'Other';
+            }
+        }
+        update accounts;
+    }
+}
