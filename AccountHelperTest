@@ -1,0 +1,20 @@
+@IsTest
+public class AccountHelperTest {
+    @IsTest
+    public static void testUpdateAccountIndustry() {
+        // Create test data
+        List<Account> accounts = new List<Account>{
+            new Account(Name = 'Tech Account', Industry = 'Technology'),
+            new Account(Name = 'Other Account', Industry = 'Finance')
+        };
+        insert accounts;
+
+        // Call the method
+        AccountHelper.updateAccountIndustry(accounts);
+
+        // Verify results
+        accounts = [SELECT Name, Industry FROM Account WHERE Id IN :accounts];
+        System.assertEquals('Tech', accounts[0].Industry);
+        System.assertEquals('Other', accounts[1].Industry);
+    }
+}
